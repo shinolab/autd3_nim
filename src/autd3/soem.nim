@@ -17,7 +17,7 @@ import link
 
 type SOEM* = object of Link
 
-type Callback = proc(a: string)
+type Callback = proc(a: cstring)
 
 type Adapter* = object
   name*: string
@@ -41,5 +41,6 @@ proc enumerateAdapters*(_: typedesc[SOEM]): seq[Adapter] =
 
 proc initSOEM*(ifname: string, deviceNum: int32, cycleTicks: uint16,
     onLost: Callback, highPrecision: bool): SOEM =
+  let p = rawProc(onLost)
   AUTDLinkSOEM(result.p.addr, ifname, deviceNum, cycleTicks,
-      onLost.unsafeAddr, highPrecision)
+      p, highPrecision)

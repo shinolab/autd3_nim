@@ -17,7 +17,7 @@ import autd3/soem
 
 import tests/runner
 
-proc onLost(msg: string) =
+proc onLost(msg: cstring) =
     echo msg
     quit(-1)
 

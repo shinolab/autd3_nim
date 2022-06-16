@@ -3,7 +3,7 @@
 # Created Date: 11/06/2022
 # Author: Shun Suzuki
 # -----
-# Last Modified: 13/06/2022
+# Last Modified: 16/06/2022
 # Modified By: Shun Suzuki (suzuki@hapis.k.u-tokyo.ac.jp)
 # -----
 # Copyright (c) 2022 Shun Suzuki. All rights reserved.
@@ -17,7 +17,7 @@ import link
 
 type SOEM* = object of Link
 
-type Callback = proc(a: cstring)
+type Callback* = proc(a: cstring)
 
 type Adapter* = object
   name*: string

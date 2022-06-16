@@ -4,17 +4,32 @@ version 2.2.0
 
 ## Run examples
 
-```
-cd examples
-nimble run soem
-```
+* First, change directory to `examples`, and then run `build.ps1` (Windows) or `build.sh` (Linux, macOS) to download libraries.
 
-or 
+    ```
+    cd examples
+    pwsh build.ps1
+    ```
 
-```
-cd examples
-nimble run emulator
-```
+    or 
+
+    ```
+    cd examples
+    ./build.sh
+    ```
+
+* And then, run examples
+
+    ```
+    nimble run soem
+    ```
+    
+    or
+
+    ```
+    nimble run emulator
+    ```
+
 
 # Author
 

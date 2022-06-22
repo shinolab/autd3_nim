@@ -29,14 +29,6 @@ proc AUTDGainHoloLM*(gain: ptr pointer; backend: pointer; eps_1: float64;
                     eps_2: float64; tau: float64; k_max: uint64; initial: ptr float64;
                     initial_size: int32) {.cdecl, importc: "AUTDGainHoloLM",
     dynlib: dll.}
-proc AUTDGainHoloGaussNewton*(gain: ptr pointer; backend: pointer; eps_1: float64;
-                             eps_2: float64; k_max: uint64; initial: ptr float64;
-                             initial_size: int32) {.cdecl,
-    importc: "AUTDGainHoloGaussNewton", dynlib: dll.}
-proc AUTDGainHoloGradientDescent*(gain: ptr pointer; backend: pointer; eps: float64;
-                                 step: float64; k_max: uint64; initial: ptr float64;
-                                 initial_size: int32) {.cdecl,
-    importc: "AUTDGainHoloGradientDescent", dynlib: dll.}
 proc AUTDGainHoloGreedy*(gain: ptr pointer; backend: pointer; phase_div: int32) {.cdecl,
     importc: "AUTDGainHoloGreedy", dynlib: dll.}
 proc AUTDGainHoloAdd*(gain: pointer; x: float64; y: float64; z: float64; amp: float64) {.

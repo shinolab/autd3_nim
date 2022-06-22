@@ -3,7 +3,7 @@
 # Created Date: 13/06/2022
 # Author: Shun Suzuki
 # -----
-# Last Modified: 13/06/2022
+# Last Modified: 22/06/2022
 # Modified By: Shun Suzuki (suzuki@hapis.k.u-tokyo.ac.jp)
 # -----
 # Copyright (c) 2022 Shun Suzuki. All rights reserved.
@@ -88,23 +88,6 @@ func initLM*(backend: Backend, eps1: float64 = 1e-8, eps2: float64 = 1e-8, tau: 
     let ip = if initial.len == 0: nil else: unsafeAddr initial[0]
     AUTDGainHoloLM(result.p.addr, backend.p, eps1, eps2, tau, k_max, ip, cast[
             int32](initial.len))
-
-type GaussNewton* = object of Holo
-
-func initGaussNewton*(backend: Backend, eps1: float64 = 1e-6, eps2: float64 = 1e-6,
-                 k_max: uint64 = 500, initial: openArray[float64] = @[]): GaussNewton =
-    let ip = if initial.len == 0: nil else: unsafeAddr initial[0]
-    AUTDGainHoloGaussNewton(result.p.addr, backend.p, eps1, eps2, k_max,
-            ip, cast[int32](initial.len))
-
-type GradientDescent* = object of Holo
-
-func initGradientDescent*(backend: Backend, eps: float64 = 1e-6, step: float64 = 0.5,
-                 k_max: uint64 = 2000, initial: openArray[float64] = @[]): GradientDescent =
-    let ip = if initial.len == 0: nil else: unsafeAddr initial[0]
-    AUTDGainHoloGradientDescent(result.p.addr, backend.p, eps, step, k_max,
-            ip, cast[int32](initial.len))
-
 
 type Greedy* = object of Holo
 

@@ -1,35 +1,35 @@
 # autd3_nim
 
-version 2.2.0
+version 2.2.1
 
 ## Run examples
 
-* First, change directory to `examples`, and then run `build.ps1` (Windows) or `build.sh` (Linux, macOS) to download libraries.
+- First, change directory to `examples`, and then run `build.ps1` (Windows) or
+  `build.sh` (Linux, macOS) to download libraries.
 
-    ```
-    cd examples
-    pwsh build.ps1
-    ```
+  ```
+  cd examples
+  pwsh build.ps1
+  ```
 
-    or 
+  or
 
-    ```
-    cd examples
-    ./build.sh
-    ```
+  ```
+  cd examples
+  ./build.sh
+  ```
 
-* And then, run examples
+- And then, run examples
 
-    ```
-    nimble run soem
-    ```
-    
-    or
+  ```
+  nimble run soem
+  ```
 
-    ```
-    nimble run emulator
-    ```
+  or
 
+  ```
+  nimble run emulator
+  ```
 
 # Author
 

@@ -3,7 +3,7 @@
 # Created Date: 11/06/2022
 # Author: Shun Suzuki
 # -----
-# Last Modified: 13/06/2022
+# Last Modified: 22/06/2022
 # Modified By: Shun Suzuki (suzuki@hapis.k.u-tokyo.ac.jp)
 # -----
 # Copyright (c) 2022 Shun Suzuki. All rights reserved.
@@ -81,11 +81,17 @@ func readsFPGAInfo*(cnt: Controller): bool =
 func `readsFPGAInfo=`*(cnt: var Controller, flag: bool) =
     AUTDSetReadsFPGAInfo(cnt.p, flag)
 
-func checkAck*(cnt: Controller): bool =
-    AUTDGetCheckAck(cnt.p)
+func checkTrials*(cnt: Controller): int32 =
+    AUTDGetCheckTrials(cnt.p)
 
-func `checkAck=`*(cnt: var Controller, flag: bool) =
-    AUTDSetCheckAck(cnt.p, flag)
+func `checkTrials=`*(cnt: var Controller, value: int32) =
+    AUTDSetCheckTrials(cnt.p, value)
+
+func sendInterval*(cnt: Controller): int32 =
+    AUTDGetSendInterval(cnt.p)
+
+func `sendInterval=`*(cnt: var Controller, value: int32) =
+    AUTDSetSendInterval(cnt.p, value)
 
 func soundSpeed*(cnt: Controller): float64 =
     AUTDGetSoundSpeed(cnt.p)
@@ -163,8 +169,7 @@ func firmwareInfoList*(cnt: Controller): seq[string] =
     list
 
 func wavelength*(cnt: Controller, devIdx: int32, transIdx: int32): float64 =
-    let c = cnt.soundSpeed
-    AUTDGetWavelength(cnt.p, devIdx, transIdx, c)
+    AUTDGetWavelength(cnt.p, devIdx, transIdx)
 
 func deviceNum*(cnt: Controller): int32 =
     AUTDNumDevices(cnt.p)
